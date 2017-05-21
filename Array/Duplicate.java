@@ -23,4 +23,27 @@ public class Duplicate{
         }
         return false;
     }
+
+/*
+Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+
+Find all the elements that appear twice in this array.
+
+Could you do it without extra space and in O(n) runtime?
+ */
+
+    public List<Integer> findDuplicates(int[] nums) {
+        ArrayList<Integer> res = new ArrayList<>();
+        for(int i = 0; i<nums.length; i++){
+            int index = Math.abs(nums[i]);
+            if(nums[index-1] >0 ){
+                nums[index-1]=-nums[index-1];
+            }
+            else{
+                res.add(index);
+            }
+        }
+        return res;
+    }
 }
+
